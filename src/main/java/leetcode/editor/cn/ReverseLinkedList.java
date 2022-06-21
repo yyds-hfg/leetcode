@@ -41,15 +41,13 @@ public class ReverseLinkedList {
      */
     class Solution {
         public ListNode reverseList(ListNode head) {
-            ListNode curr = head;
-            ListNode pre = null;
-            while (curr!=null) {
-                ListNode listNode = curr.next;
-                curr.next = pre;
-                pre = curr;
-                curr = listNode;
+            if (head == null || head.next == null) {
+                return head;
             }
-            return pre;
+            ListNode listNode = reverseList(head.next);
+            head.next.next = head;
+            head.next = null;
+            return listNode;
         }
     }
 
