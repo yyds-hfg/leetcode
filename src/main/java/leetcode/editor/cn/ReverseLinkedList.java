@@ -11,6 +11,22 @@ public class ReverseLinkedList {
         Solution solution = new ReverseLinkedList().new Solution();
     }
 
+    /**
+     * 迭代法反转链表
+     * @param head
+     * @return
+     */
+    public ListNode reverseList(ListNode head) {
+        ListNode curr = head;
+        ListNode pre = null;
+        while (curr!=null) {
+            ListNode listNode = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = listNode;
+        }
+        return pre;
+    }
 //leetcode submit region begin(Prohibit modification and deletion)
 
     /**
@@ -25,7 +41,15 @@ public class ReverseLinkedList {
      */
     class Solution {
         public ListNode reverseList(ListNode head) {
-            return head;
+            ListNode curr = head;
+            ListNode pre = null;
+            while (curr!=null) {
+                ListNode listNode = curr.next;
+                curr.next = pre;
+                pre = curr;
+                curr = listNode;
+            }
+            return pre;
         }
     }
 
