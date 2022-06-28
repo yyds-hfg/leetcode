@@ -13,13 +13,14 @@ public class ReverseLinkedList {
 
     /**
      * 迭代法反转链表
+     *
      * @param head
      * @return
      */
     public ListNode reverseList(ListNode head) {
         ListNode curr = head;
         ListNode pre = null;
-        while (curr!=null) {
+        while (curr != null) {
             ListNode listNode = curr.next;
             curr.next = pre;
             pre = curr;

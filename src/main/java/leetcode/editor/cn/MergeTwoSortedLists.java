@@ -26,17 +26,17 @@ public class MergeTwoSortedLists {
     class Solution {
         //迭代法
         public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-            if (list1==null) {
+            if (list1 == null) {
                 return list2;
             }
-            if (list2==null) {
+            if (list2 == null) {
                 return list1;
             }
             //定义一个哨兵节点
             ListNode curr = new ListNode(-1);
             ListNode pre = curr;
-            while (list1!=null&&list2!=null) {
-                if (list1.val< list2.val) {
+            while (list1 != null && list2 != null) {
+                if (list1.val < list2.val) {
                     pre.next = list1;
                     pre = list1;
                     list1 = list1.next;
@@ -46,7 +46,7 @@ public class MergeTwoSortedLists {
                     list2 = list2.next;
                 }
             }
-            pre.next = (list1==null?list2:list1);
+            pre.next = (list1 == null ? list2 : list1);
             return curr.next;
         }
     }
