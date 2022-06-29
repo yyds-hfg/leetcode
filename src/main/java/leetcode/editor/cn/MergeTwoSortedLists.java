@@ -7,9 +7,11 @@ package leetcode.editor.cn;
  */
 
 public class MergeTwoSortedLists {
+
     public static void main(String[] args) {
         Solution solution = new MergeTwoSortedLists().new Solution();
     }
+
 
     //迭代法
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
