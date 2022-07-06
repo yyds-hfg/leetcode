@@ -54,17 +54,11 @@ class Solution {
      * @Description: set保存方式
      */
     public int singleNumber(int[] nums) {
-        HashSet<Integer> hashSet = new HashSet<>();
-        int sum =0;  //保存数组的元素的总和的2倍
-        for (int num : nums) {
-            hashSet.add(num);
-            sum +=num;
-        }
-        Integer setNum = 0;  //保存set元素的总和
-        for (Integer num : hashSet) {
-            setNum +=num;
-        }
-        return setNum*2-sum; //去重之后*2 就会多出原数组的那个唯一元素
+        int result = 0;
+        //0*a=a   a*a=0
+        for (int num : nums)
+            result ^= num;
+        return result;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
