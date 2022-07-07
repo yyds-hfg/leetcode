@@ -14,9 +14,6 @@ public class LongestConsecutiveSequence{
         Solution solution = new LongestConsecutiveSequence().new Solution();
         System.out.println(solution.longestConsecutive(new int[]{100, 4, 200, 1, 3, 2}));
     }
-
-//leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
     public int longestConsecutive(int[] nums) {
         if (nums == null || nums.length==0) {
             return 0;
@@ -39,6 +36,29 @@ class Solution {
     }
     public boolean isSuffixNum(Integer num,int[] nums) {
         return Arrays.stream(nums).anyMatch(x -> x==num+1);
+    }
+//leetcode submit region begin(Prohibit modification and deletion)
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        if (nums == null || nums.length==0) {
+            return 0;
+        }
+        HashSet<Integer> hashSet = new HashSet<>();
+        //添加进HashSet--去重
+        for (int num : nums) {
+            hashSet.add(num);
+        }
+        int maxLength = 1;
+        for (int i = 0; i < nums.length; i++) {
+            int temp = nums[i];
+            int currLength =1;
+            while (hashSet.contains(temp+1)) {
+                currLength++;
+                temp++;
+            }
+            maxLength = Math.max(maxLength,currLength);
+        }
+        return maxLength;
     }
 
 }
