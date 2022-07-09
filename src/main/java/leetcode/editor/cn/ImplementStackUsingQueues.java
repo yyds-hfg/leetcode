@@ -17,20 +17,16 @@ public class ImplementStackUsingQueues{
 //leetcode submit region begin(Prohibit modification and deletion)
 class MyStack {
     Queue<Integer> queue1;
-    Queue<Integer> queue2;
     public MyStack() {
         queue1 = new LinkedList<>();
-        queue2 = new LinkedList<>();
     }
     
     public void push(int x) {
-        queue2.offer(x);
-        while (!queue1.isEmpty()) {
-            queue2.offer(queue1.poll());
+        int size = queue1.size();
+        queue1.offer(x);
+        for (int i = 0; i < size; i++) {
+            queue1.offer(queue1.poll());
         }
-        Queue<Integer> temp = queue1;
-        queue1 = queue2;
-        queue2 = temp;
     }
     
     public int pop() {
